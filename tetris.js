@@ -54,13 +54,19 @@ function Block (pos, color) {
 	// estos dos puntos.
 	// Sería interesante que emplearas las constantes Block.BLOCK_SIZE y Block.OUTLINE_WIDTH,
 	// para establecer la anchura del bloque y la anchura de la línea.
+	this.x = pos.x;
+	this.y = pos.y;
 	
-	this.x = pos.x
-	this.y = pos.y
+	var punto1_x = this.x * Block.BLOCK_SIZE;
+	var punto1_y = this.y * Block.BLOCK_SIZE;
+	var punto1 = new Point(punto1_x, punto1_y);
 	
-	var punto1 = new Point((this.x * Block.BLOCK_SIZE), (this.y * Block.BLOCK_SIZE));
-    var punto2 = new Point(((this.x * Block.BLOCK_SIZE) + Block.BLOCK_SIZE), ((this.y * Block.BLOCK_SIZE) + Block.BLOCK_SIZE));
+	var punto2_x = (this.x * Block.BLOCK_SIZE) + Block.BLOCK_SIZE;
+	var punto2_y = (this.y * Block.BLOCK_SIZE) + Block.BLOCK_SIZE;
+    var punto2 = new Point(punto2_x, punto2_y);
+	
     this.init(punto1, punto2);
+	
 	this.setLineWidth(Block.OUTLINE_WIDTH);
 	this.setFill(color);
 
